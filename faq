@@ -1,0 +1,6 @@
+### What is the difference between a tensor and a matrix?
+A tensor is a multi-dimensional array of values, with a rank that specifies the number of dimensions. A matrix is a two-dimensional array of values, with rows and columns.
+
+Here is an example to illustrate the difference between a tensor and a matrix:
+
+Imagine that you have a collection of data that consists of the weights of a group of people. You can represent this data as a 2D array or matrix, with each row representing a person and each column representing a height or weight measurement. This matrix would have two dimensions: rows and columns. Now, suppose you also want to track the age of each person in the group. You can add a third dimension to the tensor by creating a 3D array, with the third dimension representing age, or a fourth dimension of height or a fifth dimension of ethinicity. The tensor would now have three dimensions: rows, columns, and age. In this example, the tensor is a 3D array, while the matrix is a 2D array. The main difference between the two is the number of dimensions. A matrix has two dimensions (rows and columns), while a tensor can have any number of dimensions.
