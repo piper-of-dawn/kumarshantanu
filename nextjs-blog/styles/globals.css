@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,400;0,500;0,600;1,400&family=Sofia+Sans+Semi+Condensed:wght@100&display=swap');@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=JetBrains+Mono:ital,wght@0,100;0,200;0,400;0,500;0,600;1,400&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,100;0,400;0,500;1,200;1,100;1,400&family=Roboto&family=Barlow:ital,wght@0,100;0,400;0,500;0,900;1,100;1,400&display=swap'); */
+
+
+
+
+
+.navigation li > a:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #0c4a6e;
+}
+
+
+.navigation li > a:hover::after {
+  width: 100%;
+  transition: width .6s;
+}
+
+.navigation > li > a {
+   display: inline-block;
+}
+
+/*  CSS for screen size 768px and above */
+
+.intro {
+  display: grid; 
+  max-width: 35vw;
+  row-gap: 2rem;  
+  grid-template-areas: 
+    "photo name"
+    "nav about"; 
+ 
+}
+
+.photo { grid-area: photo; margin-top: auto; margin-bottom: auto; margin-left: auto; margin-right:auto; max-width: 12vmax;}
+.about { grid-area: about; min-width: 20vmax;}
+.name { grid-area: name;}
+
+.nav{ grid-area: nav; } 
+
+
+ .timeline-container {
+  /* padding: 10px 40px; */
+  position: relative;
+  display: flex;
+  min-width: 30vw;
+  max-width: 35vw;
+  flex-direction: column;
+  row-gap: 20px;
+  /* Align the items in container to top */
+
+  }
+
+
+  .content{
+  /* padding: 20px 30px; */
+  display: flex;
+    flex-direction: row;
+    column-gap: 5%;
+}
+
+.content > .time {
+  font-family: 'JetBrains Mono','Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 12px;
+min-width: 90px;
+  /* Keep text within div */
+  white-space: nowrap;
+text-align: right;
+}
+ 
+
+  .event>h4{
+    font-family: 'JetBrains Mono','Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+    padding: 1%;
+  }
+
+  .event>h5{
+    font-family: 'JetBrains Mono','Courier New', Courier, monospace;
+    color: rgb(100 116 139);
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+ 
+    padding: 1%;
+  }
+
+  .event>p{
+    font-size: 12px;
+    padding: 1%;
+    font-weight: 400;
+    font-family: 'Roboto',Arial, Helvetica, sans-serif;
+    color: rgb(118, 128, 141);
+  }
+  .event>img{
+    min-height: 70px;
+  }
+ 
+ 
+
+/* CSS for screen size 540px and below */
+@media screen and (max-width: 540px) {
+  .main{
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 100vw; 
+
+   }
+
+   .nav{
+    display: none;
+  }
+   .about{
+    padding-left: 0;
+    padding: 2rem;
+  }
+
+   .intro{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+ 
+   }
+  .photo{
+    width:70%;
+    height:70%;
+  }
+  .name { padding-left: 0; text-align: center; }
+}
+
+
+
+/* CSS for tablet */
+@media screen and (min-width: 540px) and (max-width: 1200px) {
+ .main{
+  flex-direction: column;
+  row-gap: 1rem;
+  width: 100vw; 
+
+ }
+ .intro {
+  display: grid; 
+  min-width: 80vw;
+  row-gap: 2rem;  
+  
+ 
+}
+
+.timeline-container{
+  min-width: 80vw;
+  
+}
+
+
+
+}
+
+
+

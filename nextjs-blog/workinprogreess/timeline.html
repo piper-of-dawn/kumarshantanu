@@ -1,0 +1,101 @@
+<!--Create a HTML and CSS timeline-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Timeline</title>
+<style>
+  .timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto; 
+
+  }
+
+  .event{
+    padding: 20px;
+    padding-top: 0;
+    position: relative;
+  border-left: 2px solid #ccc;
+  border-top-left-radius: 3px;
+
+
+
+  }
+  .container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;  
+  display: flex;
+  flex-direction: column;
+  /* Align the items in container to top */
+
+  }
+.content{
+  padding: 20px 30px;
+  display: flex;
+    flex-direction: row;
+    column-gap: 5%;
+
+/* Add a circle to start of the border */
+  }
+
+
+
+  .content > .time {
+    font-family: 'JetBrains Mono','Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 14px;
+min-width: 101px;
+    /* Keep text within div */
+    white-space: nowrap;
+text-align: right;
+
+
+  }
+
+
+</style>
+</head>
+<body>
+<div class="timeline">
+<div class="container">
+<div class="content">
+<div class="time">2014-Present</div>
+<!--Add a logo-->
+<div class="event">
+  <img src="ubs.svg" alt="UW Logo" width="70" height="70">
+  <h4>Mortgage Stress Loss Model Developer (for CECL / IFRS-9 models</h4>
+  <div>Union Bank of Switzerland (UBS)</div>
+  <p class="description">
+   Made significant contributions to the development of the University of Washington's new website. Coded the website using HTML, CSS, and JavaScript. Learnt how to use the Bootstrap framework to create a responsive website. Also used the jQuery library to create a carousel and a modal.
+</div>
+
+</p>
+</div>
+</div>
+
+<div class="timeline">
+  <div class="container">
+  <div class="content">
+  <div class="time">2014-2015</div>
+  <!--Add a logo-->
+  <div class="event">
+    <img src="citi.svg" alt="UW Logo" width="70" height="70">
+    <h4>Mortgage Stress Loss Model Developer (for CECL / IFRS-9 models</h4>
+    <div>Citibank</div>
+    <p class="description">
+     Made significant contributions to the development of the University of Washington's new website. Coded the website using HTML, CSS, and JavaScript. Learnt how to use the Bootstrap framework to create a responsive website. Also used the jQuery library to create a carousel and a modal.
+  </div>
+  
+  </p>
+  </div>
+  </div>
+
+
+
+
+</body>
+</html>
