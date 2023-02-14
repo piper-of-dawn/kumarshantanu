@@ -1,8 +1,6 @@
 import requests
 import argparse
 import subprocess
-### ADD MEDIUM INTEGRATION TOKEN HERE ###
-
 
 TOKEN = "2fa2b5a1afe761ed860235570724befc5d68ce4b75dfe467380b25a9bc5352cee" 
 
