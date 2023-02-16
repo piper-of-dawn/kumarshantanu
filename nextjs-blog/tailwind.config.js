@@ -21,7 +21,7 @@ module.exports = {
     'huge': '5rem',
     'normal': '13px',
     'large': '1rem',
-    'big': '3rem',
+    'big': '2rem',
     'subtitle':'0.75rem',
     'small': '0.6rem',
     'tiny': '0.4rem',
