@@ -60,6 +60,40 @@ typeParser = {
 
 
 
+
+
+
+
+def pairings_to_dict(pairings):
+    tree = {}
+    nodes = {}
+    for pairing in pairings:
+        child = pairing['child']
+        parent = pairing['parent']
+        value = pairing['value']
+        data_type = pairing['dataType']
+        if parent is None:
+            tree[child] = {}
+            nodes[child] = tree[child]
+        else:
+            if data_type == 'intermediateNode':
+                nodes[child] = {}
+            else:
+                nodes[child] = value
+            if parent not in nodes:
+                nodes[parent] = {}
+            nodes[parent][child] = nodes[child]
+    return tree
+
+
+
+
+
+
+
+
+
+
 def buildNestedDict(register):
     getParent = lambda register, child: [x['parent'] for x in register if x['child'] == child][0]
     leafNodes = getLeafNodes(register)
@@ -89,5 +123,8 @@ def buildNestedDict(register):
 
 
 
+a = [1,2,3,4,5,6,7,8,9,10]
+# Get first 4 elements
+a[:4]
 if __name__ == "__main__":
-  print(buildNestedDict(pairChildWithParent(test)))
+  print(pairings_to_dict(pairChildWithParent(test)))
