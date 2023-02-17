@@ -1,0 +1,133 @@
+\documentclass{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{titling}
+\usepackage[margin=1in]{geometry}
+
+% Set the paragraph spacing
+\setlength{\parskip}{1em}
+
+% Title and author
+\title{Decomposition Methodology for ECL}
+\author{Kumar Shantanu}
+
+% Begin document
+\begin{document}
+\maketitle
+
+% Abstract
+\begin{abstract}
+
+
+Formalising the problem statement as follows:
+
+
+\end{abstract}
+
+% Introduction
+\section{Introduction}
+The paper presents a methodology to decompose the change in expected credit losses (ECL) between two model runs, into its constituent weights. First, the change in ECL between two model runs for each loan is broken down into a weighted linear sum of change in PD, change in LGD and change in the EAD. Then, PD, LGD and EAD are further decomposed into a weighted linear sum of the change in variables which are used to estimate them.  
+
+\subsection*{Formalising the problem statement: }
+
+\textbf{Notations used: }
+
+\begin{table}[h]
+  \centering
+  \label{tab:notations}
+  \begin{tabular}{cc}
+  \hline
+  \textbf{Notation} & \textbf{Definition}  \\
+  \hline
+  $i$ & Index denoting a Loan  \\
+  $ECL$ & Expected Credit Loss  \\
+  $PD$ & Probability of Delfault  \\
+  $LGD$ & Loss Given Default \\
+  $EAD$ & Exposure at Default \\
+  $\Delta$ & Absolute change between two model runs\\
+  $w$ & Linear weight of a variable \\
+  $\mathbf{v}$ & Boldface denotes a vector \\
+  $\mathbf{v}^T$ & Transpose of a vector or a matrix $\mathbf{v}$ \\
+
+  \hline
+  \end{tabular}
+  \end{table}
+  
+
+There are two model runs denoted by Run $0$ and Run $1$
+$$ \text{Model Run} = \{0,1\} $$
+
+The change in ECL for $i_{th}$ loan between two model runs (Run 0  and Run 1) is given by:
+$$ \Delta ECL_{i} = ECL_{1i} - ECL_{0i} $$
+$\Delta ECL_i$ denotes the absolute change in ECL for $i_{th}$ loan between two model runs.
+
+The problem is to decompose $\Delta ECL_i$ into its drivers. That is to say, we want to find the weights of the change in PD, change in LGD and change in EAD which contribute to the change in ECL for $i_{th}$ loan between two model runs.
+$$ \Delta ECL = (w_{PD} \times \Delta PD) + (w_{LGD} \times \Delta LGD) + (w_{EAD} \times EAD) $$
+such that $ w_{PD} + w_{LGD} + w_{EAD} = 1$
+
+In vector notation this can be written as:
+\begin{align*}
+  \Delta ECL &=
+  \begin{pmatrix}
+    w_{PD} & w_{LGD} & w_{EAD} 
+  \end{pmatrix}
+  \times 
+  \begin{pmatrix}
+    \Delta PD \\ \Delta LGD \\ \Delta EAD
+  \end{pmatrix} \\
+  &= \mathbf{w_{ECL}}^T \times \mathbf{\Delta_{ECL}}
+\end{align*}
+where $\mathbf{w_{ECL}}$ is a vector of weights and $\mathbf{\Delta_{ECL}}$ is a vector of changes in PD, LGD and EAD.
+
+Further $\Delta PD$, $\Delta LGD$ and $\Delta EAD$ are linearly decomposed into their constituent variables.
+$$ \Delta PD = \mathbf{w_{PD}}^T \times \mathbf{\Delta_{PD}} $$
+$$ \Delta LGD = \mathbf{w_{LGD}}^T \times \mathbf{\Delta_{LGD}} $$
+$$ \Delta EAD = \mathbf{w_{EAD}}^T \times \mathbf{\Delta_{EAD}} $$
+Here, $\mathbf{\Delta_{PD}}$, $\mathbf{\Delta_{LGD}}$ and $\mathbf{\Delta_{EAD}}$ are vectors of changes in variables which are used to estimate PD, LGD and EAD respectively.
+
+Substituting the above equations in the equation for $\Delta ECL$:
+\begin{align*}
+  \Delta ECL &=
+  \begin{pmatrix}
+    w_{PD} & w_{LGD} & w_{EAD} 
+  \end{pmatrix}
+  \times 
+  \begin{pmatrix}
+    \mathbf{w_{PD}}^T \times \mathbf{\Delta_{PD}} \\ \mathbf{w_{LGD}}^T \times \mathbf{\Delta_{LGD}} \\ \mathbf{w_{EAD}}^T \times \mathbf{\Delta_{EAD}}
+  \end{pmatrix} \\
+  &= \mathbf{w}^T \times \mathbf{\Delta}
+\end{align*}
+Here, $\mathbf{w}$ is a vector of weights and $\mathbf{\Delta}$ is a vector of changes in the mosty granular variables which are used to estimate ECL.
+
+\textbf{Problem: }
+The problem is to find the vector weights $\mathbf{w}$ such that $\sum_{i}^{n} {w_i} = 1$.
+
+
+
+
+% Literature Review
+\section{Literature Review}
+This is where you would review relevant literature and provide context for your research.
+
+% Methodology
+\section{Methodology}
+This is where you would describe your research methodology.
+
+% Results
+\section{Results}
+This is where you would present your results.
+
+% Discussion and Conclusion
+\section{Discussion and Conclusion}
+This is where you would discuss your results and draw conclusions.
+
+% References
+\begin{thebibliography}{99}
+This is where you would list your references.
+\end{thebibliography}
+
+\end{document}

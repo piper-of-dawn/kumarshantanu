@@ -15,7 +15,7 @@ print = pp.pprint
 from pandas import DataFrame
 
 # Write a nested dictionary
-test =  {"root": {"key1": {"subkey11": "value11", "subkey12": "value12", "subkey13": "value13"}, "key2": {"subkey21": "subkey211", "subkey22": "value22", "subkey23": {"subkey231": "value231", "subkey232": "value232"},"subkey24": {"subkey241": "value241", "subkey242": "value242", "subkey243": 1234}},"key3": {"subkey31": "value31", "subkey32": "value32", "subkey33": DataFrame({"a":[1,2,3],"b":[4,5,6]})}}}
+test =  {"root": {"key1": {"subkey11": "value11", "subkey12": "value12", "subkey13": "value13"}, "key2": {"subkey21": "subkey211", "subkey22": "value22", "subkey23": {"subkey231": "value231", "subkey232": "value232"},"subkey24": {"subkey241": "value241", "subkey242": "value242", "subkey243": [ {'name': 'Alice', 'age': 25}, {'name': 'Bob', 'age': 30}, {'name': 'Charlie', 'age': 35} ]}},"key3": {"subkey31": "value31", "subkey32": "value32", "subkey33": DataFrame({"a":[1,2,3],"b":[4,5,6]})}}}
 
 # Write a function that pairs each child with its parent in this nested dictionary. The output should be a list of dictionaries. Each dictionary should have one key-value pair, where the key is the child and the value is the tuple. The first element of the tuple is the parent name and second element is the value of the child, if child is a leaf node or None if child is not a leaf node. 
 
@@ -31,8 +31,9 @@ def pairChildWithParent(d, parent=None):
         if isinstance(value, dict): # if child is a dictionary
             result.append({'child': key,'parent':parent,'value': None, 'isTable': False})
             result.extend(pairChildWithParent(value, key)) # recursively call the function
+        elif isinstance(value, list) and all(isinstance(item, dict) for item in value):
+            result.append({'child': key,'parent':parent,'value': DataFrame(value), 'isTable': isTable})            
         else:
-            isinstance(value, DataFrame) and (isTable := True)
             result.append({'child': key,'parent':parent,'value': value, 'isTable': isTable})
     return result
   
@@ -173,12 +174,8 @@ def buildNestedDict(register):
         siblings = [(x['child'], x['value']) for x in register if x['parent'] == parent]
         # Create a subnode dictionary with parent as key and siblings as value
         subnode = {parent : {sibling[0]:sibling[1] for sibling in siblings}}
-        nestedDict.update(subnode)
-        
-        #EUREKA TILL HERE
-        
-        keys = nestedDict.keys()
-        
+        nestedDict.update(subnode)       
+        keys = nestedDict.keys()        
     parentList = [(key,getParent(register, key)) for key in keys]
     # Check if all parents are 'root' in parentList
     allParentsVisited = lambda parentList: all([x[1] == 'root' for x in parentList])
