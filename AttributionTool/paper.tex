@@ -7,7 +7,7 @@
 \usepackage{hyperref}
 \usepackage{titling}
 \usepackage[margin=1in]{geometry}
-
+\numberwithin{equation}{section}
 % Set the paragraph spacing
 \setlength{\parskip}{1em}
 
@@ -19,20 +19,12 @@
 \begin{document}
 \maketitle
 
-% Abstract
-\begin{abstract}
-
-
-Formalising the problem statement as follows:
-
-
-\end{abstract}
-
 % Introduction
-\section{Introduction}
+\section{Abstract}
 The paper presents a methodology to decompose the change in expected credit losses (ECL) between two model runs, into its constituent weights. First, the change in ECL between two model runs for each loan is broken down into a weighted linear sum of change in PD, change in LGD and change in the EAD. Then, PD, LGD and EAD are further decomposed into a weighted linear sum of the change in variables which are used to estimate them.  
 
-\subsection*{Formalising the problem statement: }
+\section{The Problem statement}
+The following section presents a formal outline of the problem that this methodology solves.
 
 \textbf{Notations used: }
 
@@ -59,14 +51,14 @@ The paper presents a methodology to decompose the change in expected credit loss
   
 
 There are two model runs denoted by Run $0$ and Run $1$
-$$ \text{Model Run} = \{0,1\} $$
+\begin{equation} \text{Model Run} = \{0,1\} \end{equation}
 
 The change in ECL for $i_{th}$ loan between two model runs (Run 0  and Run 1) is given by:
-$$ \Delta ECL_{i} = ECL_{1i} - ECL_{0i} $$
+\begin{equation} \Delta ECL_{i} = ECL_{1i} - ECL_{0i} \end{equation}
 $\Delta ECL_i$ denotes the absolute change in ECL for $i_{th}$ loan between two model runs.
 
 The problem is to decompose $\Delta ECL_i$ into its drivers. That is to say, we want to find the weights of the change in PD, change in LGD and change in EAD which contribute to the change in ECL for $i_{th}$ loan between two model runs.
-$$ \Delta ECL = (w_{PD} \times \Delta PD) + (w_{LGD} \times \Delta LGD) + (w_{EAD} \times EAD) $$
+\begin{equation} \Delta ECL = (w_{PD} \times \Delta PD) + (w_{LGD} \times \Delta LGD) + (w_{EAD} \times EAD) \end{equation}
 such that $ w_{PD} + w_{LGD} + w_{EAD} = 1$
 
 In vector notation this can be written as:
@@ -84,9 +76,9 @@ In vector notation this can be written as:
 where $\mathbf{w_{ECL}}$ is a vector of weights and $\mathbf{\Delta_{ECL}}$ is a vector of changes in PD, LGD and EAD.
 
 Further $\Delta PD$, $\Delta LGD$ and $\Delta EAD$ are linearly decomposed into their constituent variables.
-$$ \Delta PD = \mathbf{w_{PD}}^T \times \mathbf{\Delta_{PD}} $$
-$$ \Delta LGD = \mathbf{w_{LGD}}^T \times \mathbf{\Delta_{LGD}} $$
-$$ \Delta EAD = \mathbf{w_{EAD}}^T \times \mathbf{\Delta_{EAD}} $$
+\begin{equation} \Delta PD = \mathbf{w_{PD}}^T \times \mathbf{\Delta_{PD}} \end{equation}
+\begin{equation} \Delta LGD = \mathbf{w_{LGD}}^T \times \mathbf{\Delta_{LGD}} \end{equation}
+\begin{equation} \Delta EAD = \mathbf{w_{EAD}}^T \times \mathbf{\Delta_{EAD}} \end{equation}
 Here, $\mathbf{\Delta_{PD}}$, $\mathbf{\Delta_{LGD}}$ and $\mathbf{\Delta_{EAD}}$ are vectors of changes in variables which are used to estimate PD, LGD and EAD respectively.
 
 Substituting the above equations in the equation for $\Delta ECL$:
@@ -110,24 +102,113 @@ The problem is to find the vector weights $\mathbf{w}$ such that $\sum_{i}^{n} {
 
 
 % Literature Review
-\section{Literature Review}
+\section{Decomposing ECL into PD, LGD and EAD}
 This is where you would review relevant literature and provide context for your research.
 
 % Methodology
-\section{Methodology}
-This is where you would describe your research methodology.
+\section{Decomposing PD model into a linear function of variables}
+The PD model is a Probit specification which is specified as:
+\begin{equation} PD  = \Phi (\beta_0 + \beta_1 \text{GDP} + \beta_1 \text{HPI} \hdots ) \end{equation}
+where $\beta_j$ is the coefficient of the $j_{th}$ variable and $\Phi$ is the cumulative distribution function of the standard normal distribution.
 
-% Results
-\section{Results}
-This is where you would present your results.
+The change in PD between two model runs Run 0 and Run 1 for the $i_{th}$ given by:
 
-% Discussion and Conclusion
-\section{Discussion and Conclusion}
-This is where you would discuss your results and draw conclusions.
+\begin{equation} \Delta PD = PD_{1i} - PD_{0i} \end{equation}
 
-% References
-\begin{thebibliography}{99}
-This is where you would list your references.
-\end{thebibliography}
+\textbf{Problem Statement:} Write the change in PD as a linear function of the change in variables which are used to estimate PD. That is:
+
+\begin{equation} \Delta PD = w_{GDP} \times \Delta GDP + w_{HPI} \times \Delta HPI \hdots w_j \times \Delta j\end{equation}
+
+where $w_{j}$ are the weights of the change in the PD drivers and $\Delta j$ is the change in the $j_{th}$ driver.
+
+In vector notation this can be written as:
+
+\begin{equation} \Delta PD = \mathbf{w_{PD}}^T \times \mathbf{\Delta_{PD}} \end{equation}
+
+where $\mathbf{w_{PD}}$ is a vector of weights and $\mathbf{\Delta_{PD}}$ is a vector of changes in variables which are used to estimate PD.
+
+\textbf{Solution:} 
+
+\text{Step 1:} Write a linear equation that specifies PD for an individual run as a linear function of the values of the drivers:
+ 
+\begin{equation} \label{lin_PD} PD = p_0 \text{Intercept} + p_1 \text{GDP} + p_2 \text{HPI} + \hdots + p_j \text{j} \end{equation}
+
+where $p_j$ is the coefficient of the $j_{th}$ driver. 
+
+Each $p_j$ can be written as the first order partial derivative of the above equation with respect to the $j_{th}$ driver.
+
+\begin{equation} p_j = \frac{\partial \ PD}{\partial j} \end{equation}
+
+\text{Step 2:} The probit PD model is specified as: 
+\begin{equation} PD  = \Phi (\beta_0 + \beta_1 \text{GDP} + \beta_1 \text{HPI} \hdots ) \end{equation}
+
+Partially differentiating the above equation with respect to the $j_{th}$ driver gives:
+
+\begin{equation} \label{PD_der}\frac{\partial \ PD}{\partial j} = \beta_j \times \frac{\partial \ \Phi}{\partial j} \end{equation}
+
+Using the property that the derivative of the cumulative distribution function is the probability density function of the probability distribution, we get:
+
+\begin{equation} \label{pj_expr} \frac{\partial \ \Phi}{\partial j} = \frac{1}{\sqrt{2 \pi}} \times e^{-\frac{1}{2} x^2} \end{equation} 
+
+$ \frac{1}{\sqrt{2 \pi}} \times e^{-\frac{1}{2} x^2} $ is the PDF of a standard normal distribution and $x = \beta_0 + \beta_1 \text{GDP} + \beta_1 \text{HPI} \hdots $
+
+Step 3: Substitute
+
+Substituting \ref{pj_expr} in the \ref{PD_der} gives:
+
+\begin{equation} 
+\label{pj_final}
+p_j = \frac{\partial \ PD}{\partial j} = \beta_j \times \frac{1}{\sqrt{2 \pi}} \times e^{-\frac{1}{2} x^2}
+\end{equation}
+
+Substituting, \ref{pj_final} in \ref{lin_PD} gives:
+\begin{equation} 
+\label{lin_PD_final}
+PD = \left(\beta_0 \times \frac{1}{\sqrt{2 \pi}} \times e^{-\frac{1}{2} x^2} \right) \times \text{Intercept}  + \left(\beta_1 \times \frac{1}{\sqrt{2 \pi}} \times e^{-\frac{1}{2} x^2} \right) \times \text{GDP} \hdots + \left(\beta_j \times \frac{1}{\sqrt{2 \pi}} \times e^{-\frac{1}{2} x^2}\right)
+\end{equation}
+
+$$ PD = \sum^j p_j \times \text{j} $$
+Here $p_j$ is the weight of j-th driver and is equal to $\beta_j \times \frac{1}{\sqrt{2 \pi}} \times e^{-\frac{1}{2} x^2}$
+
+Step 4: Take a linear difference between two model runs:
+We can calculate linear breakup as specified in \ref{lin_PD} for each model run (0 and 1). Here $p_{j_0}$ and $p_{j_1}$ are the weights of the $j_{th}$ driver and ${j_0}$ and ${j_1}$ are the values of the $j_{th}$ driver for model runs 0 and 1 respectively.
+
+
+\begin{equation}
+\label{PD_0}
+PD_0 = \sum^j p_{j_0} \times j_0
+\end{equation}
+
+\begin{equation}
+  \label{PD_1}
+  PD_1 = \sum^j p_{j_1} \times j_1 \end{equation}
+
+Subtract \ref{PD_0} from \ref{PD_1} to get the change in PD:
+
+\begin{equation}
+\label{PD_diff}
+\Delta PD = PD_1 - PD_0 = \sum^j p_{j_1} \times j_1 - \sum^j p_{j_0} \times j_0
+\end{equation}
+
+Suppose $j$ is GDP. So the contribution of GDP to the change in PD is:
+
+\begin{equation}
+\label{PD_diff_GDP}
+\Delta PD = p_{GDP_1} \times GDP_1 - p_{GDP_0} \times GDP_0
+\end{equation}
+
+Step 5: Standardize the weights
+\label{std_weights}
+Divide \ref{PD_diff} by $\Delta PD$ to get the standardized weights. The standard weights are:
+
+\begin{equation}
+\label{std_weights}
+w_j = \frac{p_{j_1} \times j_1 - p_{j_0} \times j_0}{\Delta PD}
+\end{equation}
+
+where $w_{j}$ are the weight of the $j_{th}$ driver.
+
+$$\sum_j w_j = 1$$
+
 
 \end{document}

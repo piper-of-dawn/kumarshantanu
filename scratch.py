@@ -120,11 +120,37 @@ def buildNestedDict(register):
       parentList = [(key,getParent(register, key)) for key in nestedDict.keys()]
     return {'root':nestedDict}
 
+class Table(dict):
+    def __init__(self, *args, **kwargs): 
+        super(Table, self).__init__(*args, **kwargs) 
+        self.__dict__ = self 
+        self.dataFrame = DataFrame(self) 
+    
+
+t = Table({'a': [1, 2, 3], 'b': [4, 5, 6]})
+# Convert the above dictionary to a list of dictionaries
+
+def orientRecords (t):
+    return [dict(zip(t, x)) for x in zip(*t.values())]
+
+
+# Send a request to an excternal API
+
+import requests
+
+def makeGetRequest (url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    elif response.status_code == 404:
+        return 'Error 404: The server could not be found!'
+    elif response.status_code == 500:
+        return 'Error 500: The server encountered an unexpected condition that prevented it from fulfilling the request'
 
 
 
-a = [1,2,3,4,5,6,7,8,9,10]
-# Get first 4 elements
-a[:4]
+
 if __name__ == "__main__":
-  print(pairings_to_dict(pairChildWithParent(test)))
+#   print(pairings_to_dict(pairChildWithParent(test)))
+    output = [dict(zip(t, x)) for x in zip(*t.values())]
+    print(t.dataFrame)
