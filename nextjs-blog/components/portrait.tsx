@@ -1,9 +1,8 @@
 import Image from 'next/image'
 
 function Avatar() {
-  return <div className='relative group '>
-
-    <div><Image src="/images/photo.png" alt="me" width="1024" height="1024" className='relative shadow-xl md:rounded-full border-none xs:rounded-full  xs:ml-auto xs:mr-auto '/></div>
+  return <div className='h-40 w-40 mx-auto'>
+    <Image src="/images/photo.png" alt="me" className='shadow-xl rounded-full' height="512" width="512"/>
  </div>
 }
 

@@ -2,11 +2,6 @@
 module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}","./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    // screens: {
-    //   phone: "568px",
-    //   tablet: "1200px",
-    //   desktop: "1440px",
-    // },
     extend: {
       gridAutoRows: {
         '2fr': 'minmax(0, 2fr)',
@@ -15,13 +10,16 @@ module.exports = {
   fontFamily: {
     'sans': ['Roboto','Sofia Sans','Arial', 'sans-serif'],
     'mono': ['JetBrains Mono','Consolas', 'sans-serif'],
+    'serif': ['Old Standard TT','Georgia', 'serif'],
 },
 
   fontSize: {
     'huge': '5rem',
     'normal': '13px',
     'large': '1rem',
+    'verylarge': '1.5rem',
     'big': '2rem',
+    'verybig': '3rem',
     'subtitle':'0.75rem',
     'small': '0.6rem',
     'tiny': '0.4rem',

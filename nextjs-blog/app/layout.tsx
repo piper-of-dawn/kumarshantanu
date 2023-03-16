@@ -16,7 +16,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         </div>
         
         </body>
-        AOS.init();
+
     </html>
   )
 }

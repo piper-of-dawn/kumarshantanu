@@ -13,7 +13,7 @@ const BlogPosts = () => {
   ));
   return (
     <div id="posts" className="flex">
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-4 justify-center min-w-full">   
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-4 justify-center min-w-full pl-12 pr-12">   
         {postPreviews}   
       </div>
     </div>

@@ -1,0 +1,12 @@
+C:\git\kumarshantanu\playground\aoc\target\debug\deps\num_bigint-3ac6ffa69feb5d9f.rmeta: C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\lib.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\macros.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\bigint.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\biguint.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\algorithms.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\monty.rs
+
+C:\git\kumarshantanu\playground\aoc\target\debug\deps\libnum_bigint-3ac6ffa69feb5d9f.rlib: C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\lib.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\macros.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\bigint.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\biguint.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\algorithms.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\monty.rs
+
+C:\git\kumarshantanu\playground\aoc\target\debug\deps\num_bigint-3ac6ffa69feb5d9f.d: C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\lib.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\macros.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\bigint.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\biguint.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\algorithms.rs C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\monty.rs
+
+C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\lib.rs:
+C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\macros.rs:
+C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\bigint.rs:
+C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\biguint.rs:
+C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\algorithms.rs:
+C:\Users\kumar\.cargo\registry\src\github.com-1ecc6299db9ec823\num-bigint-0.2.6\src\monty.rs:
